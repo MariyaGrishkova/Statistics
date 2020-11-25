@@ -3,7 +3,12 @@ package ru.netology.stats;
 public class StatsService {
 
     public int sum(int[] purchases) {
-    return 180;
+        int result = 0;
+        for (int purchase : purchases) {
+            result += purchase;
+        }
+
+        return result;
 
     }
 }
