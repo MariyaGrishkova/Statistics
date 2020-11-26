@@ -11,4 +11,9 @@ public class StatsService {
         return result;
 
     }
+    public int average(int[] purchases){
+        int sum = sum (purchases);
+
+        return sum / purchases.length;
+    }
 }

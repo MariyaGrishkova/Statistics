@@ -13,6 +13,12 @@ class StatsServiceTest {
         int actual = service.sum(purchases);
         assertEquals (expected, actual);
     }
-
-
+    @Test
+    void shouldAverage() {
+        StatsService service = new StatsService();
+        int[] purchases = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        int expected = 15;
+        int actual = service.average(purchases);
+        assertEquals(expected, actual);
+    }
 }
