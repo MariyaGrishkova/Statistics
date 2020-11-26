@@ -2,8 +2,6 @@ package ru.netology.stats;
 
 public class StatsService<purchases> {
 
-    private int[] purchases;
-
     public int sum(int[] purchases) {
         int result = 0;
         for (int purchase : purchases) {
@@ -21,11 +19,10 @@ public class StatsService<purchases> {
     }
 
     public int MaxMonth(int[] purchases) {
-        this.purchases = purchases;
-        int max = 0;
+        int max = purchases [0];
         for (int purchase : purchases) {
             max = purchases[0];
-            if (purchase > max) {
+            if (purchase >= max) {
                 max = purchase;
             }
         }
@@ -39,5 +36,23 @@ public class StatsService<purchases> {
         }
         return maxMonth;
     }
-
+    public int MinMonth(int[] purchases) {
+        int min = purchases[0];
+        for (int purchase : purchases) {
+            min = purchases[0];
+            if (purchase < min) {
+                min = purchase;
+            }
+        }
+        int monthNumber = 0;
+        int minMonth = 0;
+        for (int purchase : purchases) {
+            monthNumber++;
+            if (purchase == min) {
+                minMonth = monthNumber;
+            }
+        }
+        return minMonth;
+    }
 }
+
