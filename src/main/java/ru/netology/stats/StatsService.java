@@ -1,6 +1,6 @@
 package ru.netology.stats;
 
-public class StatsService<purchases> {
+public class StatsService<purchases, count> {
 
     public int sum(int[] purchases) {
         int result = 0;
@@ -18,41 +18,50 @@ public class StatsService<purchases> {
         return sum / purchases.length;
     }
 
-    public int MaxMonth(int[] purchases) {
-        int max = purchases [0];
+    public int getMax(int[] purchases) {
+        int monthMax = purchases[0];
         for (int purchase : purchases) {
-            max = purchases[0];
-            if (purchase >= max) {
-                max = purchase;
+            if (monthMax > purchase) {
+                monthMax = purchase;
             }
         }
-        int monthNumber = 0;
-        int maxMonth = 0;
-        for (int purchase : purchases) {
-            monthNumber++;
-            if (purchase == max) {
-                maxMonth = monthNumber;
-            }
-        }
-        return maxMonth;
+        return monthMax;
     }
-    public int MinMonth(int[] purchases) {
-        int min = purchases[0];
+
+    public int GetMin(int[] purchases) {
+        int monthMin = purchases[0];
         for (int purchase : purchases) {
-            min = purchases[0];
-            if (purchase < min) {
-                min = purchase;
+            if (monthMin < purchase) {
+                monthMin = purchase;
             }
         }
-        int monthNumber = 0;
-        int minMonth = 0;
+        return monthMin;
+    }
+
+    public int BadMonth(int[] purchases) {
+        int average = average(purchases);
+        int count = 0;
         for (int purchase : purchases) {
-            monthNumber++;
-            if (purchase == min) {
-                minMonth = monthNumber;
+            if (purchase < average) {
+                count++;
+
             }
         }
-        return minMonth;
+
+        return count;
+
+    }
+
+    public int GoodMonth(int[] purchases) {
+        int average = average(purchases);
+        int count = 0;
+        for (int purchase : purchases) {
+            if (purchase > average) {
+                count++;
+
+            }
+        }
+
+        return count;
     }
 }
-

@@ -26,7 +26,7 @@ class StatsServiceTest {
         StatsService service = new StatsService();
         int[] purchases = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expected = 8;
-        int actual = service.MaxMonth(purchases);
+        int actual = service.getMax(purchases);
         assertEquals(expected, actual);
     }
     @Test
@@ -34,7 +34,21 @@ class StatsServiceTest {
         StatsService service = new StatsService();
         int[] purchases = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expected = 9;
-        int actual = service.MaxMonth(purchases);
+        int actual = service.GetMin(purchases);
         assertEquals(expected, actual);
+    }
+    @Test
+    void shouldReturnBadMonth (){
+        StatsService service = new StatsService();
+        int[] purchases = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        int expected = 5;
+        int actual =service.BadMonth(purchases);
+    }
+    @Test
+    void shouldReturnGoodMonth () {
+        StatsService service = new StatsService();
+        int[] purchases = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        int expected = 5;
+        int actual = service.GoodMonth(purchases);
     }
 }
