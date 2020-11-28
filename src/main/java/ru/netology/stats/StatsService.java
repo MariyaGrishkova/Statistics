@@ -21,21 +21,39 @@ public class StatsService<purchases, count> {
     public int getMax(int[] purchases) {
         int monthMax = purchases[0];
         for (int purchase : purchases) {
-            if (monthMax > purchase) {
+            if (monthMax < purchase) {
                 monthMax = purchase;
             }
         }
-        return monthMax;
+        int monthCount = 0;
+        int monthwithMax = 0;
+        for (int purchase : purchases) {
+            monthCount++;
+            if (purchase == monthMax) {
+                monthwithMax = monthCount;
+            }
+
+        }
+        return monthwithMax;
     }
 
-    public int GetMin(int[] purchases) {
+    public int getMin(int[] purchases) {
         int monthMin = purchases[0];
         for (int purchase : purchases) {
-            if (monthMin < purchase) {
+            if (monthMin > purchase) {
                 monthMin = purchase;
             }
         }
-        return monthMin;
+        int monthCount = 0;
+        int monthwithMin = 0;
+        for (int purchase : purchases) {
+            monthCount++;
+            if (purchase == monthMin) {
+                monthwithMin = monthCount;
+            }
+
+        }
+        return monthwithMin;
     }
 
     public int BadMonth(int[] purchases) {
